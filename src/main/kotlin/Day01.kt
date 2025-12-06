@@ -63,6 +63,18 @@ class Dial(var position: Int, val size: Int) {
                 }
             }
 
+        companion object {
+            fun from(string: String): Instruction {
+                val directionString =  string.take(1)
+                val direction = Direction.from(directionString)
+
+                val distanceString = string.substring(startIndex = 1)
+                val distance = distanceString.toInt()
+
+                return Instruction(direction, distance)
+            }
+        }
+
         enum class Direction {
             LEFT, RIGHT;
 
@@ -74,18 +86,6 @@ class Dial(var position: Int, val size: Int) {
                         RIGHT
                     }
                 }
-            }
-        }
-
-        companion object {
-            fun from(string: String): Instruction {
-                val directionString =  string.take(1)
-                val direction = Direction.from(directionString)
-
-                val distanceString = string.substring(startIndex = 1)
-                val distance = distanceString.toInt()
-
-                return Instruction(direction, distance)
             }
         }
     }
