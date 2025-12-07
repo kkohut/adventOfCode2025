@@ -6,7 +6,7 @@ fun main() {
 }
 
 class Day01 {
-    var lines: List<String> = File("inputs/inputDay01").readLines()
+    val lines: List<String> = File("inputs/inputDay01").readLines()
     val dial = Dial(position = 50, size = 100)
     val instructions = lines.map { Dial.Instruction.from(it) }
 
